@@ -3,8 +3,10 @@
 :root {
     --color-text-default: #27374D;
     --color-icons-grey: #9DB2BF;
-    --bg-item-clicado: #526D82;
-    --bg-default: #DDE6ED;
+    --bg-menu-clicado: #526D82;
+    --bg-menu-expandido: #DDE6ED;
+    --bg-menu-hover: #B0C1DC;
+    /* --bg-default: #DDE6ED; */
     
 }
 
@@ -55,15 +57,22 @@ aside li a {
     font-size: 16px;
 }
 
-aside li:hover {
-    background-color: var(--bg-default);
+aside li a:hover {
+    background-color: var(--bg-menu-hover);
 }
 
 aside li a.clicado {
-    background-color: var(--bg-item-clicado);
+    background-color: var(--bg-menu-clicado) !important;
     border-bottom: 1px solid var(--color-icons-grey); 
     border-top: 1px solid var(--color-icons-grey);
-    color: white;
+}
+
+aside li a.clicado span {
+    color: white !important;
+}
+
+aside li a.expandido {
+    background-color: var(--bg-menu-expandido);
 }
 
 .icon__first, .icon__second {
