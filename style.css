@@ -8,7 +8,6 @@
     
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -43,10 +42,6 @@ aside {
     border-right: 1px solid var(--color-icons-grey);
 }
 
-ul {
-    /* padding-top: 16px; */
-}
-
 aside li {
     list-style: none;
 }
@@ -60,7 +55,7 @@ aside li a {
     font-size: 16px;
 }
 
-aside li a:hover {
+aside li:hover {
     background-color: var(--bg-default);
 }
 
@@ -100,3 +95,6 @@ footer {
     border: 1px solid var(--color-icons-grey);
     /* background-color: coral; */
 }
+
+
+/* ==================== MENU DINAMICO ====================*/
