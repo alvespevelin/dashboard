@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Roboto&display=swap');
+
+:root {
+    --color-text-default: #27374D;
+    --color-icons-grey: #9DB2BF;
+    --bg-item-clicado: #526D82;
+    --bg-default: #DDE6ED;
+    
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-text-default);
+}
+
+a {
+    text-decoration: none;
+}
+
+#grid__container {
+    display: grid;
+    grid-template:
+        "header header" 96px
+        "aside main" calc(100vh - (96px + 80px))
+        "footer footer" 80px
+        /264px 1fr
+}
+
+
+header {
+    grid-area: header;
+    padding: 16px;
+    border: 1px solid var(--color-icons-grey);
+}
+
+aside {
+    grid-area: aside;
+    /* padding: 16px; */
+    border-right: 1px solid var(--color-icons-grey);
+}
+
+ul {
+    /* padding-top: 16px; */
+}
+
+aside li {
+    list-style: none;
+}
+
+aside li a {
+    padding-left: 16px;
+    display: flex;
+    height: 48px;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+aside li a:hover {
+    background-color: var(--bg-default);
+}
+
+aside li a.clicado {
+    background-color: var(--bg-item-clicado);
+    border-bottom: 1px solid var(--color-icons-grey); 
+    border-top: 1px solid var(--color-icons-grey);
+    color: white;
+}
+
+.icon__first, .icon__second {
+    color: var(--color-icons-grey);
+    font-size: 24px;
+}
+
+.icon__first {
+    margin-right: 8px;
+}
+
+.icon__second {
+    margin-right: 4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    grid-area: main;
+    padding: 24px;
+    /* background-color: #DDE6ED; */
+}
+
+footer {
+    grid-area: footer;
+    padding: 16px;
+    border: 1px solid var(--color-icons-grey);
+    /* background-color: coral; */
+}
