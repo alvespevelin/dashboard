@@ -1,0 +1,54 @@
+<svg width="112" height="1080" viewBox="0 0 112 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_22_71)">
+<rect width="112" height="1080" fill="white"/>
+<g clip-path="url(#clip1_22_71)">
+<path d="M63 137V139H59V137H63ZM53 137V143H49V137H53ZM63 145V151H59V145H63ZM53 149V151H49V149H53ZM65 135H57V141H65V135ZM55 135H47V145H55V135ZM65 143H57V153H65V143ZM55 147H47V153H55V147Z" fill="#9DB2BF"/>
+</g>
+<g clip-path="url(#clip2_22_71)">
+<path d="M62 186H60C60 183.79 58.21 182 56 182C53.79 182 52 183.79 52 186H50C48.9 186 48 186.9 48 188V200C48 201.1 48.9 202 50 202H62C63.1 202 64 201.1 64 200V188C64 186.9 63.1 186 62 186ZM56 184C57.1 184 58 184.9 58 186H54C54 184.9 54.9 184 56 184ZM62 200H50V188H52V190C52 190.55 52.45 191 53 191C53.55 191 54 190.55 54 190V188H58V190C58 190.55 58.45 191 59 191C59.55 191 60 190.55 60 190V188H62V200Z" fill="#9DB2BF"/>
+</g>
+<g clip-path="url(#clip3_22_71)">
+<path d="M66 234C66 232.9 65.1 232 64 232H48C46.9 232 46 232.9 46 234V246C46 247.1 46.9 248 48 248H64C65.1 248 66 247.1 66 246V234ZM64 234L56 239L48 234H64ZM64 246H48V236L56 241L64 236V246Z" fill="#9DB2BF"/>
+</g>
+<g clip-path="url(#clip4_22_71)">
+<path d="M47 294H53V292H47V294ZM47 282V284H65V282H47ZM47 289H59V287H47V289Z" fill="#9DB2BF"/>
+</g>
+<g clip-path="url(#clip5_22_71)">
+<path d="M63 328H62V326H60V328H52V326H50V328H49C47.89 328 47.01 328.9 47.01 330L47 344C47 345.1 47.89 346 49 346H63C64.1 346 65 345.1 65 344V330C65 328.9 64.1 328 63 328ZM63 344H49V334H63V344ZM63 332H49V330H63V332ZM53 338H51V336H53V338ZM57 338H55V336H57V338ZM61 338H59V336H61V338ZM53 342H51V340H53V342ZM57 342H55V340H57V342ZM61 342H59V340H61V342Z" fill="#9DB2BF"/>
+</g>
+<g clip-path="url(#clip6_22_71)">
+<path d="M53 389H51V382H53V389ZM57 389H55V379H57V389ZM61 389H59V385H61V389ZM63 391H49V377H63V391ZM63 375H49C47.9 375 47 375.9 47 377V391C47 392.1 47.9 393 49 393H63C64.1 393 65 392.1 65 391V377C65 375.9 64.1 375 63 375Z" fill="#9DB2BF"/>
+</g>
+<g clip-path="url(#clip7_22_71)">
+<path d="M60 426L62.29 428.29L57.41 433.17L53.41 429.17L46 436.59L47.41 438L53.41 432L57.41 436L63.71 429.71L66 432V426H60Z" fill="#9DB2BF"/>
+</g>
+<rect x="24.5" y="16.5" width="63" height="63" rx="7.5" stroke="black"/>
+<rect x="0.5" y="0.5" width="111" height="1079" stroke="black"/>
+</g>
+<defs>
+<clipPath id="clip0_22_71">
+<rect width="112" height="1080" fill="white"/>
+</clipPath>
+<clipPath id="clip1_22_71">
+<rect width="24" height="24" fill="white" transform="translate(44 132)"/>
+</clipPath>
+<clipPath id="clip2_22_71">
+<rect width="24" height="24" fill="white" transform="translate(44 180)"/>
+</clipPath>
+<clipPath id="clip3_22_71">
+<rect width="24" height="24" fill="white" transform="translate(44 228)"/>
+</clipPath>
+<clipPath id="clip4_22_71">
+<rect width="24" height="24" fill="white" transform="translate(44 276)"/>
+</clipPath>
+<clipPath id="clip5_22_71">
+<rect width="24" height="24" fill="white" transform="translate(44 324)"/>
+</clipPath>
+<clipPath id="clip6_22_71">
+<rect width="24" height="24" fill="white" transform="translate(44 372)"/>
+</clipPath>
+<clipPath id="clip7_22_71">
+<rect width="24" height="24" fill="white" transform="translate(44 420)"/>
+</clipPath>
+</defs>
+</svg>
