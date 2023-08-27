@@ -102,8 +102,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 
 function carregarSideBar() {
-    if(listMenu.length == 0)
-    {
+    if(listMenu.length == 0) {
         document.getElementById("menu__dinamico__lista").innerText = "";
         document.getElementById("menu__dinamico").style.display = 'none';
     } else {
@@ -114,29 +113,37 @@ function carregarSideBar() {
     }
 }
 
-function incluirItemMenu(item, elementoPai) { // Refatorado ok
-    var element = document.getElementById(elementoPai); // Elemento que vai ser inserido o item do menu
+function incluirItemMenu(item, elementoPai) {
+    var element = document.getElementById(elementoPai);
     var li = document.createElement('li');
+    li.classList.add("item__" + item.nivel);
 
     var a = document.createElement('a');
     a.setAttribute("id", item.nivel); 
+    a.classList.add("sidebar__item__link"); 
     a.setAttribute("onclick", "clicado(this)");
 
-    if(item.itens.length > 0) { // Se tiver submenu vai colocar o icon de expansão
+    if(item.itens.length > 0) {
         var spanFirst = document.createElement('span');
         spanFirst.classList.add("material-symbols-outlined")
-        spanFirst.classList.add("icon__first")
+        spanFirst.classList.add("sidebar__item__link__icon__first")
         spanFirst.innerHTML = "chevron_right";
         a.appendChild(spanFirst);
     }    
+    else {
+        a.classList.add("nivel__" +item.nivel.split('_').length);
+    }
 
-    if(item.nivel.split('_').length == 1) { // Se for nível 1, vai colocar o ícone do item {não coloca pra submenus}
+    if(item.nivel.split('_').length == 1) {
         var spanSecond = document.createElement('span');
         spanSecond.classList.add("material-symbols-outlined")
-        spanSecond.classList.add("icon__second");
+        spanSecond.classList.add("sidebar__item__link__icon__second");
         spanSecond.innerHTML = item.icone;
         a.appendChild(spanSecond);
+    } else {
+        a.classList.add("itens");
     }
+
 
     var spanTitulo = document.createElement('span');
     spanTitulo.innerHTML = item.titulo;
@@ -145,7 +152,6 @@ function incluirItemMenu(item, elementoPai) { // Refatorado ok
     li.appendChild(a);
     element.appendChild(li);
     
-    // Verifica se o item atual tem submenus, se tiver faz a chamada "recursiva" pra incluir os submenus
     for (let i = 0; i < item.itens.length; i++) {
         elementoPai = "subMenu_" + item.itens[i].nivel;
 
@@ -160,7 +166,17 @@ function incluirItemMenu(item, elementoPai) { // Refatorado ok
     }
 }
 
+function removerClasse(elemento, classe) {
+    if(elemento.classList.length > 1)
+        elemento.classList.remove(classe);
+    else
+        elemento.removeAttribute("class");
+}
 
+function incluirClasse(elemento, classe) {
+    if(!elemento.classList.contains(classe))
+        elemento.classList.add(classe);
+}
 
 function clicado(itemClicado) {
     var itemEstaExpandido = itemClicado.classList.contains('expandido');
@@ -169,59 +185,35 @@ function clicado(itemClicado) {
     var itensClicados = document.getElementsByClassName('clicado');
     var itensExpandidos = itemClicado.getElementsByClassName('expandido');
 
-    // REMOVE A CLASSE CLICADO DE TODOS OS ELEMENTOS
     for (let i = 0; i < itensClicados.length; i++) {
-        itensClicados[i].classList.remove('clicado');
+        removerClasse(itensClicados[i], 'clicado');
     }
 
-    // VERIFICA SE ESTÁ COM A CLASSE EXPANDIDO
     if(itemEstaExpandido) {
-        // REMOVE A CLASSE EXPANDIDO DE TODOS OS ELEMENTOS FILHOS (DE BAIXO PARA CIMA), VOLTA O ICONE DE EXPANSAO E OCULTA OS SUBMENUS
         for (let i = itensExpandidos.length - 1; i >= 0 ; i--) {
-            itensExpandidos[i].classList.remove('expandido');
+            removerClasse(itensExpandidos[i], 'expandido');
             itensExpandidos[i].firstChild.innerText = "chevron_right";
             mostrarOcultarSubMenu("ocultar", itensExpandidos[i]);
         }
-
-        // REMOVE A CLASSE EXPANDIDO DO ELEMENTOCLICADO, VOLTA O ICONE DE EXPANSAO E OCULTA O SUBMENU
-        // itemClicado.classList.remove('expandido');
-        if(itemClicado.classList.length > 1)
-            itemClicado.classList.remove('expandido');
-        else
-            itemClicado.removeAttribute("class");
-
+        removerClasse(itemClicado, 'expandido');
         itemClicado.firstChild.innerText = "chevron_right";
         mostrarOcultarSubMenu("ocultar", itemClicado);
     }
 
-    if(!itemEstaClicado && !itemEstaExpandido)
-    {
-        itemClicado.classList.add('clicado');
-        
-        if(itemClicado.firstChild.innerText == "chevron_right")
-        {
-            itemClicado.classList.add('expandido');
+    if(!itemEstaClicado && !itemEstaExpandido) {
+        incluirClasse(itemClicado, 'clicado')
+        if(itemClicado.firstChild.innerText == "chevron_right") {
+            incluirClasse(itemClicado, 'expandido');
             itemClicado.firstChild.innerText = "expand_more";
             mostrarOcultarSubMenu("mostrar", itemClicado);
         }
-        
-        if(itemClicado.firstChild.innerText != "chevron_right")
-        {
+        if(itemClicado.firstChild.innerText != "chevron_right") {
             itensExpandidos = document.getElementsByClassName('expandido');
             for (let i = itensExpandidos.length - 1; i >= 0 ; i--) {
-                console.log(itemClicado.getAttribute("id"))
-                console.log(itemClicado.getAttribute("id"))
-                if(!itemClicado.getAttribute("id").includes(itensExpandidos[i].getAttribute("id")))
-                {
-                    console.log("itensExpandidos[i]: ", itensExpandidos[i])
-                
+                if(!itemClicado.getAttribute("id").includes(itensExpandidos[i].getAttribute("id"))) {
                     itensExpandidos[i].firstChild.innerText = "chevron_right";
                     mostrarOcultarSubMenu("ocultar", itensExpandidos[i]);
-                    
-                    if(itensExpandidos[i].classList.length > 1)
-                        itensExpandidos[i].classList.remove('expandido');
-                    else
-                        itensExpandidos[i].removeAttribute("class");
+                    removerClasse(itensExpandidos[i], 'expandido');
                 }
             }
         }
@@ -230,47 +222,19 @@ function clicado(itemClicado) {
 
 function mostrarOcultarSubMenu(acao, item) {
     var elementos = item.parentNode.children;
+    debugger;
 
     for (let i = 1; i < elementos.length; i++) {
-        elementos[i].style.display = acao == "mostrar" ? 'block' : 'none';
+        console.log(elementos[i])
+        console.log(elementos[i].firstChild)
+        if("mostrar" == acao) {
+            elementos[i].style.display = 'block';
+            incluirClasse(elementos[i].firstChild, 'display__expandido')
+        } else {
+            elementos[i].style.display = 'none';
+            removerClasse(elementos[i].firstChild, 'display__expandido')        
+        }
+        
+        
     }
 }
-
-
-
-
-/*
-function clicado(itemClicado) {
-    var itensClicados = document.getElementsByClassName('clicado');
-    var itemJaEstaClicado = false;
-
-    for (let i = 0; i < itensClicados.length; i++) {
-        const item = itensClicados[i];
-        console.log("item: ", item)
-        
-
-        itemJaEstaClicado = item.getAttribute("id") == itemClicado.getAttribute("id");
-        
-        if(item.classList.contains('clicado'))
-            item.classList.remove('clicado');
-
-        if(item.firstChild.innerText == "expand_more") {
-            item.firstChild.innerText = "chevron_right";
-            mostrarOcultarSubMenu("ocultar", item);
-        }
-    }
-
-    if(!itemJaEstaClicado)
-    {
-        itemClicado.classList.add("clicado");
-
-        if(itemClicado.firstChild.innerText == "chevron_right")
-        {
-            itemClicado.firstChild.innerText = "expand_more";
-            mostrarOcultarSubMenu("mostrar", itemClicado);
-        }
-    }
-}
-
-
-*/

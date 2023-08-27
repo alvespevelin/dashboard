@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Roboto&display=swap');
+
+:root {
+    --color-text-default: #27374D;
+    --color-icons-grey: #9DB2BF;
+    --bg-menu-clicado: #526D82;
+    --bg-menu-expandido: #DDE6ED;
+    --bg-menu-hover: #B0C1DC;    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-text-default);
+}
+
+
+#grid__container {
+    display: grid;
+    grid-template:
+        "header header" 96px
+        "aside main" calc(100vh - (96px + 80px))
+        "footer footer" 80px
+        /264px 1fr
+}
+
+
+header {
+    grid-area: header;
+    padding: 16px;
+    border: 1px solid var(--color-icons-grey);
+}
+
+main {
+    grid-area: main;
+    padding: 24px;
+    /* background-color: #DDE6ED; */
+}
+
+footer {
+    grid-area: footer;
+    padding: 16px;
+    border: 1px solid var(--color-icons-grey);
+    /* background-color: coral; */
+}
+
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
